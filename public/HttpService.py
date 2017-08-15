@@ -21,7 +21,7 @@ class MyHTTP(object):
             text = resp.json()
             return text
         except Exception as e:
-            print('GET错误:s%'%e)
+            print('GET错误:%s' % e)
 
     def post(self,url,**DataALL):
         params = DataALL.get('params')
@@ -34,4 +34,4 @@ class MyHTTP(object):
             text = resp.json()
             return text
         except Exception as e:
-            print('POST错误:s%'%e)
+            print('POST错误:%s' % e)
