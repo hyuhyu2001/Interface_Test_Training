@@ -7,26 +7,28 @@
 
 import unittest
 from public import base
+from public import base
+
+testcasefile = 'post_json_test_data.xlsx'
+AllData = base.get_data(testcasefile, 'AllData')
+TestData = base.get_data(testcasefile, 'TestData')
+EndPoint = AllData[1][1]
+RequestMethod = AllData[1][2]
+Sn = TestData[1][0]
+RequestData = TestData[1][1]
+Expectedresult = TestData[1][2]
 
 class PostJsonTest(unittest.TestCase):
     def setUp(self):
-        endpoint = 'post'
-        self.url = base.get_url(endpoint)
+        self.url = base.get_url(EndPoint)
 
     def test_post_json(self):
-        json = {
-            "info": {"code": 1, "sex": "男", "id": 1900, "name": "巧吧软件测试"},
-            "code": 1,
-            "name": "巧吧软件测试", "sex": "女",
-            "data": [{"code": 1, "sex": "男", "id": 1900, "name": "巧吧软件测试"}, {"code": 1, "sex": "女", "id": 1900, "name": "巧吧软件测试"}],
-             "id": 1900
-        }
-        DataALL = {'json':json}
-        Method = 'post'
+        DataALL = eval(RequestData)
+        Method = RequestMethod
         resp = base.get_response(self.url,Method,**DataALL)
-
+        print(resp)
         name = resp.get('data')
-        self.assertIsInstance(name,str)
+        self.assertIsInstance(Expectedresult,str)
 
     def tearDown(self):
         pass
