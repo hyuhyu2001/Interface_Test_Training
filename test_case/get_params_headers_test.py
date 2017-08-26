@@ -7,30 +7,35 @@
 
 import unittest
 from public import base
+from ddt import ddt,data,unpack
 
 testcasefile = 'get_params_headers_test_data.xlsx'
-AllData =  base.get_data(testcasefile,'AllData')
-TestData = base.get_data(testcasefile,'TestData')
-EndPoint = AllData[1][1]
-RequestMethod = AllData[1][2]
-DataAll = TestData[1][1]
-Expectedresult = TestData[1][2]
+AllData = base.get_data(testcasefile, 'AllData')
+TestData = base.get_data(testcasefile, 'TestData')[1:]
 
+@ddt
 class GetParamsHeadersTest(unittest.TestCase):
     '''GET有params和headers测试'''
     def setUp(self):
-        endpoint = EndPoint
-        self.url = base.get_url(endpoint)
+        self.endpoint = AllData[1][1]
+        self.RequestMethod = AllData[1][2]
+        self.RequestData = AllData[1][3]
+        self.url = base.get_url(self.endpoint)
 
-    def test_params_headers(self):
+    @data(*TestData)
+    @unpack
+    def test_params_headers(self,*TestData):
         '''验证浏览器是否Chrome'''
         '''给服务器发送请求'''
-        DataALL = eval(DataAll)
-        Method = RequestMethod
-        resp = base.get_response(self.url,Method,**DataALL)
+        Method = self.RequestMethod
+        if self.RequestData != '':
+            DataAll = eval(self.RequestData)
+            resp = base.get_response(self.url,Method,**DataAll)
+        else:
+            resp = base.get_response(self.url, Method)
 
-        User_Agent = resp['headers']['User-Agent']
-        self.assertIn(Expectedresult,User_Agent)
+        User_Agent = resp[TestData[0]][TestData[1]]
+        self.assertIn(TestData[2],User_Agent)
 
     def tearDown(self):
         pass

@@ -11,29 +11,32 @@ import unittest
 from public import base
 from ddt import ddt,data,unpack
 
+testcasefile = 'get_nothing_test_data.xlsx'
+AllData = base.get_data(testcasefile, 'AllData')
+TestData = base.get_data(testcasefile, 'TestData')[1:]
+
 @ddt
 class GetNothingTest(unittest.TestCase):
     '''GET无参数测试'''
     def setUp(self):
-        endpoint = 'get'
-        self.url = base.get_url(endpoint)
+        self.endpoint = AllData[1][1]
+        self.RequestMethod = AllData[1][2]
+        self.RequestData = AllData[1][3]
+        self.url = base.get_url(self.endpoint)
 
-    @data(200,400,500,201,301)
-    def test_1(self,result):
-        '''校验状态码是否为200'''
-        r = requests.get(self.url)
-
-        status_code  = r.status_code
-        self.assertEqual(status_code,result)
-
-    @data(['headers','Connection','close'],['headers','Host','httpbin.org'])
+    @data(*TestData)
     @unpack
-    def test_2(self,headers,value,result):
+    def test_2(self,*TestData):
         '''校验headers里的Connection值'''
-        r = requests.get(self.url)
-        resp = r.json()
-        connect = resp[headers][value]
-        self.assertEqual(connect,result)
+        Method = self.RequestMethod
+        if self.RequestData != '':
+            DataAll = eval(self.RequestData)
+            resp = base.get_response(self.url,Method,**DataAll)
+        else:
+            resp = base.get_response(self.url, Method)
+
+        connect = resp[TestData[0]][TestData[1]]
+        self.assertEqual(connect,TestData[2])
 
     def tearDown(self):
         pass
