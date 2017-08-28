@@ -5,7 +5,6 @@
 @desc:编码为表单形式的数据,通过data参数传递
 """
 
-
 #第1步：导入模块
 import unittest
 from public import base

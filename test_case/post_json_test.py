@@ -7,7 +7,6 @@
 
 import unittest
 from public import base
-from public import base
 
 testcasefile = 'post_json_test_data.xlsx'
 AllData = base.get_data(testcasefile, 'AllData')
