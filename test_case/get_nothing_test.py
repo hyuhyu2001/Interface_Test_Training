@@ -43,16 +43,3 @@ class GetNothingTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-        # print(r.url)#获取URL
-        # print(r.status_code,r.reason) #获取状态码,获取状态码的原因
-        # print(r.headers)#响应头
-
-        # print(type(r.text))
-        # print(r.content) #byte,图片、文件，
-        # print(type(r.content))
-        # print(r.request.headers) #请求头
-        # print(r.request.url)
-        # print(r.request.method)
-        # print(type(response))
-        # print(response['headers']['Connection'])
-        # print(eval(r.text)['headers']['Connection'])
