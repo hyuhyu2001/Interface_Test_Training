@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 @author:     jinzj
-@desc: patch创建类的构造器：return_value，side_effect
+@desc: @patch 创建类的构造器：return_value，side_effect
 """
 
 import sys
