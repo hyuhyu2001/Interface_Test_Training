@@ -10,6 +10,11 @@ def url():
     # url = 'https://www.baidu.com/'
     return url
 
+def mock_open():
+    open = 'ON'
+    # open = 'OFF'
+    return open
+
 #数据库连接串
 sql_conn_dict = {
     'host':'localhost',

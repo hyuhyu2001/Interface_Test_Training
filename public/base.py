@@ -26,3 +26,7 @@ def get_data(testfile,sheetname):
     datainfo = read_excel.XLDatainof(r'D:\python_pycharmWorkspace\python36\Interface_Test_Training\test_data\%s'%testfile)
     Data = datainfo.get_sheetinfo_by_name(sheetname)
     return Data
+
+def get_mock_status():
+    mock_status = Config.mock_open()
+    return mock_status
