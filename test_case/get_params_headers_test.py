@@ -10,6 +10,7 @@ from public import base
 from ddt import ddt,data,unpack
 
 testcasefile = 'get_params_headers_test_data.xlsx'
+
 AllData = base.get_data(testcasefile, 'AllData')
 TestData = base.get_data(testcasefile, 'TestData')[1:]
 
