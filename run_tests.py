@@ -19,12 +19,12 @@ import smtplib
 from public import mail
 
 def send_email(filename):
-    mail_host='smtp.exmail.qq.com'
+    mail_host='SMTP.cloud-young.com'
     mail_user=mail.mail_user   #邮箱名 '2837065966@qq.com'
     mail_pass=mail.mail_pass   #密码 ；'#￥%……'
 
     sender=mail.sender  #发送邮箱名
-    receivers=['2837065966@qq.com'] #收件人
+    receivers=['jinzj@cloud-young.com'] #收件人
 
     message=MIMEMultipart('related')
 

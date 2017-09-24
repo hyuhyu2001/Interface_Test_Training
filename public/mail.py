@@ -5,6 +5,6 @@
 @desc:
 """
 
-mail_user = '****'
-mail_pass='****'
-sender='****'
+mail_user = 'jinzj@cloud-young.com'
+mail_pass='Jinzj1'
+sender='jinzj@cloud-young.com'

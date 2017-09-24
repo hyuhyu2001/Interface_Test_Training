@@ -4,9 +4,6 @@
 @author:     巧吧软件测试
 @desc:无请求参数
 """
-
-import requests
-import json
 import unittest
 from public import base
 from ddt import ddt,data,unpack

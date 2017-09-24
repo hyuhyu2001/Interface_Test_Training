@@ -8,7 +8,6 @@
 #第1步：导入模块
 import unittest
 from public import base
-from public import HttpService
 
 #第2步：必须继承unittest.TestCase
 class PostDataTest(unittest.TestCase):

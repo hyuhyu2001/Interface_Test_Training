@@ -11,8 +11,8 @@ def url():
     return url
 
 def mock_open():
-    open = 'ON'
-    # open = 'OFF'
+    # open = 'ON'
+    open = 'OFF'
     return open
 
 #数据库连接串

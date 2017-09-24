@@ -69,6 +69,6 @@ class XLDatainof(object):
         return infolist
 
 if __name__ == "__main__":
-    datainfo = XLDatainof(r'D:\python_pycharmWorkspace\python36\Interface_Test_Training\test_data\get_params_headers_test_data.xlsx')
+    datainfo = XLDatainof(r'D:\python_pycharmWorkspace\Interface_Test_Training\test_data\get_params_headers_test_data.xlsx')
     alldata = datainfo.get_sheetinfo_by_name('TestData')
     print(alldata)

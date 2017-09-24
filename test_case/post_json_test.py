@@ -25,7 +25,6 @@ class PostJsonTest(unittest.TestCase):
         DataALL = eval(RequestData)
         Method = RequestMethod
         resp = base.get_response(self.url,Method,**DataALL)
-        print(resp)
         name = resp.get('data')
         self.assertIsInstance(Expectedresult,str)
 

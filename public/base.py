@@ -23,7 +23,7 @@ def get_response(url,Method,**DataALL):
     return resp
 
 def get_data(testfile,sheetname):
-    datainfo = read_excel.XLDatainof(r'D:\python_pycharmWorkspace\python36\Interface_Test_Training\test_data\%s'%testfile)
+    datainfo = read_excel.XLDatainof(r'D:\python_pycharmWorkspace\Interface_Test_Training\test_data\%s'%testfile)
     Data = datainfo.get_sheetinfo_by_name(sheetname)
     return Data
 
